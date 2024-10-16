@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --index: calc(1vw + 1vh);
+}
+
+@font-face {
+    font-family: PressStar;
+    src: url(fonts/PressStart2P-Regular.ttf);
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+body{
+    h1{color: #fff;}
+    h3{color: #fff;}
+    p{color: #fff;}    
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.text-box{
+    font-family: PressStar;
+    font-size: calc(var(--index));
+    letter-spacing: .3vw;
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.glow-on-hover {
+    font-family: PressStar;
+    font-size: calc(var(--index));
+    margin: calc(var(--index));
+    width: calc(var(--index)*10);
+    height: calc(var(--index)*3.5);
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #F318EA, #49EBFF, #F318EA);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+
+.course{
+    font-family: PressStar;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: calc(var(--index)*3);
+    background-color: #030717;
+    letter-spacing: .2vw;
+    color: #fff;
+    p{
+        font-size: calc(var(--index)*.7);
+        padding: calc(var(--index));
+        color: rgba(255, 255, 255, .6);
+    }
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    h3{
+        font-size: calc(var(--index));
+        padding: calc(var(--index));
+    }
+    p{
+        font-size: calc(var(--index)*.7);
+        padding: calc(var(--index)); 
+    }
+}
+.inf-colon{
+    flex-basis: 31%;
+    background: linear-gradient(45deg, #154062, #4E063C);
+    border-radius: 10px;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 20%;
+    box-sizing: border-box;
+    transition: .3s ease-in-out;
+
+}
+.inf-colon:hover{
+    box-shadow: 0 0 50px 0px rgba(73, 235, 255,0.3);
+    transform: scale(1.05);
+} 
+
+.advant{
+    font-family: PressStar;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: calc(var(--index)*5);
+    background-color: #030717;
+    letter-spacing: .2vw;
+    h1{
+        color: #fff;
+    }
+    
+}
+.list1b {
+    text-align: left;
+    margin-top: calc(var(--index)*5);
+    margin-right: auto;
+    margin-left: auto;
+    padding:0;
+    list-style: none;
+    counter-reset: li;
+    width: calc(var(--index)*30);
+    li{
+        color: #fff;
+    }
+    
+}
+.list1b li {
+    border: 2px solid #154062;
+    background: #030717;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 16px 10px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.list1b li:hover {
+    z-index: 1;
+    border: 2px solid #49EBFF;
+}
+.list1b li:before {
+    border: 2px solid #49EBFF;
+    position: absolute;
+    top: -14px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #49EBFF;
+    background: #154062;
+    counter-increment: li;
+    content: counter(li);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.list1b li:hover:before {
+    border: 2px solid #49EBFF;
+    background: #3dbbcb;
+    color: #FFF;
+    -webkit-transform: translate(-12px, 0);
+    -ms-transform: translate(-12px, 0);
+    -o-transform: translate(-12px, 0);
+    transform: translate(-12px, 0);
+}
+.list1b li:after {
+    content: "";
+    position: absolute;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    -webkit-transition-property: width;
+    transition-property: width;
+    z-index: -1;
+    background: #154062;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+.list1b li:hover:after {
+    width: 100%;
+}
+
+
+
+.review{
+    font-family: PressStar;
+    background-color: #030717;
+    margin: auto;
+    padding-top: calc(var(--index)*2);
+    padding-bottom: calc(var(--index)*5);
+    text-align: center;
+}
+.rev-col{
+    margin: auto;
+}
+.rev-col img{
+    height: calc(var(--index)*15);
+    border-radius: calc(var(--index)*10);
+    transition: .3s ease-in-out;
+}
+.rev-col img:hover{
+    box-shadow: 0 0 50px 0px rgba(231, 15, 177, 0.541);
+    transform: scale(1.05);
+} 
+.stars img{
+    height: calc(var(--index));
+    border-radius: 0;
+    transition: none;
+}
+.stars img:hover{
+    box-shadow: none;
+    transform: none;
+}
+.start{
+    font-family: PressStar;
+    font-size: calc(var(--index)*1.3);
+    min-height: calc(var(--index).2);
+    background-image: linear-gradient(rgba(3,7,23,0.7),rgba(3,7,23,0.7)), url(img/bg2.jpg);
+    background-color: #030717;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: calc(var(--index)*10);
+}
+
+
+
+
+
+.form{
+    font-family: PressStar;
+    font-size: calc(var(--index)*1.3);
+    min-height: calc(var(--index).2);
+    background-image: linear-gradient(rgba(3,7,23,0.7),rgba(3,7,23,0.7)), url(img/bg2.jpg);
+    background-color: #030717;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: calc(var(--index)*10);
+}
+.form input, .form textarea{
+    font-family: PressStar;
+    color: #fff;
+    background-color: #030717;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: calc(var(--index));
+    margin-top: calc(var(--index));
+    outline: none;
+    border: 1px solid #49EBFF;
+}
+
+

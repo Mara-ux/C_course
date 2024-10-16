@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --index: calc(1vw + 1vh);
+}
+
+@font-face {
+    font-family: PressStar;
+    src: url(fonts/PressStart2P-Regular.ttf);
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(3,7,23,0.7),rgba(3,7,23,0.7)), url(img/bg3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.main{
+    font-family: PressStar;
+    font-size: calc(var(--index)*1.3);
+    position: absolute;
+    text-align: center;
+}
+.text_dw{
+    padding: calc(var(--index)*10);
+}
+.glow-on-hover {
+    font-family: PressStar;
+    font-size: calc(var(--index));
+    margin: calc(var(--index));
+    width: calc(var(--index)*10);
+    height: calc(var(--index)*3.5);
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #F318EA, #49EBFF, #F318EA);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
